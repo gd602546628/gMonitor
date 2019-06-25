@@ -1077,10 +1077,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var uuid = 0;
 
-var Operation = function Operation() {
+var Operation = //页面url
+//标签名
+//元素类名
+//元素id名
+//事件类型
+//事件x坐标
+//事件y坐标
+// 事件发生时间
+function Operation() {
   _classCallCheck(this, Operation);
 
-  _defineProperty(this, "page", void 0);
+  _defineProperty(this, "id", void 0);
+
+  _defineProperty(this, "path", void 0);
+
+  _defineProperty(this, "elementName", void 0);
+
+  _defineProperty(this, "elementClass", void 0);
+
+  _defineProperty(this, "elementId", void 0);
+
+  _defineProperty(this, "eventType", void 0);
+
+  _defineProperty(this, "clientX", void 0);
+
+  _defineProperty(this, "clientY", void 0);
+
+  _defineProperty(this, "time", void 0);
 
   this.id = uuid++;
 };
@@ -1123,7 +1147,7 @@ function Record() {
 
   _defineProperty(this, "time", void 0);
 
-  _defineProperty(this, "agnet", void 0);
+  _defineProperty(this, "agent", void 0);
 
   _defineProperty(this, "message", void 0);
 
@@ -1163,9 +1187,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var RECORD = 'RECORD'; // record story name
+var RECORD = 'RECORD'; // record store name
 
-var OPERATION = 'OPERATION'; // operation story name
+var OPERATION = 'OPERATION'; // operation store name
 
 var noop = function noop() {};
 
@@ -1237,8 +1261,10 @@ function () {
     }
   }, {
     key: "createOperation",
-    value: function createOperation() {
+    value: function createOperation(event) {
       var operation = new _operation.default();
+      operation.clientX = event.clientX;
+      operation.clientY = event.clientY;
       return operation;
     }
   }]);
@@ -1283,7 +1309,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50019" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56915" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
