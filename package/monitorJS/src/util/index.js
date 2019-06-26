@@ -1,4 +1,4 @@
-export function getDevice () {
+export function getDevice() {
     let device = {};
     let ua = navigator.userAgent;
     let android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
@@ -106,10 +106,18 @@ export function getDevice () {
     return device;
 }
 
-export function getUUID(){
+export function getUUID() {
     let timeStamp = new Date().getTime()
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16) + "-" + timeStamp;
     });
+}
+
+export function isFunction(fn) {
+    return typeof fn === 'function'
+}
+
+export function noop() {
+    return false
 }

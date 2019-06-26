@@ -14,7 +14,7 @@ class Base {
 }
 
 export class JavascriptInfo extends Base {
-    constructor({line, column, errorMessage, errorStack, errorType}) {
+    constructor({line, column, errorMessage, errorStack, errorType, fileName}) {
         super();
         this.line = line
         this.column = column
@@ -25,9 +25,11 @@ export class JavascriptInfo extends Base {
 }
 
 export class ResourceInfo extends Base {
-    constructor({sourceUrl, elementType}) {
+    constructor({sourceUrl, elementType, errorType}) {
         super()
         this.sourceUrl = sourceUrl
+        this.elementType = elementType
+        this.errorType = errorType
     }
 }
 
@@ -44,7 +46,7 @@ export class EventInfo extends Base {
 }
 
 export class HttpInfo extends Base {
-    constructor({startTime, endTime, disTime, requestData, queryData, responseData,requestUrl}) {
+    constructor({startTime, endTime, disTime, requestData, queryData, responseData, requestUrl}) {
         super()
         this.startTime = startTime
         this.endTime = endTime
