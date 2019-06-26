@@ -1,3 +1,3 @@
-import Recode from '../src/recode/index'
+import Record from '../src/record/index'
 
-new Recode()
+new Record()

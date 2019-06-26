@@ -1,7 +1,7 @@
 import {JavascriptInfo, ResourceInfo, HttpInfo, EventInfo} from './classes'
 import {isFunction, noop} from '../util/index'
 
-export default class Recode {
+export default class Record {
     constructor(options = {}) {
         this.options = options || {};
         ['jsHandler', 'eventHandler', 'resourceHandler', 'httpHandler'].forEach(key => {
